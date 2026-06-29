@@ -1,0 +1,21 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name        = "multi-agent-harness"
+version     = "0.1.0"
+description = "Async multi-agent task harness with priority queue, message bus, and result aggregation"
+requires-python = ">=3.11"
+dependencies    = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-asyncio>=0.23"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths    = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["harness*", "agents*"]
